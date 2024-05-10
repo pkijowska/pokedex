@@ -6,10 +6,10 @@ const fetchPokemon = (id: number) => async () => {
 
   const species = await fetch(data.species.url);
   const speciesData = await species.json();
-  const stats = data.stats.map((stat: any) => {
+  const stats = data.stats.map((stat: { name: string; base_stat: number }) => {
     return {
       base_stat: stat.base_stat,
-      name: stat.stat.name,
+      name: stat.name,
     };
   });
 

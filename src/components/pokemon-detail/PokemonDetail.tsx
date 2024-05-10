@@ -3,7 +3,7 @@ import useGetPokemon from "../../hooks/useGetPokemon";
 import Loader from "../loader/Loader";
 import style from "./PokemonDetail.module.css";
 import PokemonPill from "../pokemon-pill/PokemonPill";
-import { capitaliseFirstLetter } from "../../utils/utils";
+import { PokemonType, capitaliseFirstLetter } from "../../utils/utils";
 import { useEffect } from "react";
 import Error from "../error/Error";
 import PokemonStats from "../pokemon-stats/PokemonStats";
@@ -42,7 +42,7 @@ const PokemonDetail = () => {
             height="650"
           />
           <div className={style.pillWrapper}>
-            {data?.type.map((type: any) => (
+            {data?.type.map((type: PokemonType) => (
               <PokemonPill key={type} type={type} />
             ))}
           </div>
@@ -54,7 +54,7 @@ const PokemonDetail = () => {
             <p>{data?.description}</p>
             <h2>Stats</h2>
             <div className={style.stats}>
-              {data?.stats.map((stat: any) => (
+              {data?.stats.map((stat: { name: string; base_stat: number }) => (
                 <PokemonStats
                   key={stat.name}
                   name={stat.name}
