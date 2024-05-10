@@ -10,7 +10,7 @@ const Pokedex = () => {
   return (
     <>
       <h1 className="center">Pokedex</h1>
-      <Link to="/pokemons" className={styles.backLink}>
+      <Link to="/" className={styles.backLink}>
         {"<"} Back to all pokemons
       </Link>
       {caughtPokemons.length === 0 && (

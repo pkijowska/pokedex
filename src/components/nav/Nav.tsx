@@ -29,7 +29,7 @@ const Nav = () => {
 
         <div className={styles.favourites}>
           <div className={styles.homeLink}>
-            <Link to="/pokemons">Home</Link>
+            <Link to="/">Home</Link>
           </div>
           <Link to="/pokeball">
             {" "}
@@ -39,7 +39,7 @@ const Nav = () => {
               className={`${styles.pokeball} ${isShaking ? styles.shake : ""}`}
             />
           </Link>
-          <p className={styles.favouritesText}>{caughtPokemons.length}</p>
+          <p className={styles.text}>{caughtPokemons.length}</p>
         </div>
       </div>
     </nav>

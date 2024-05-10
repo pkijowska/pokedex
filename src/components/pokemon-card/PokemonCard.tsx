@@ -36,7 +36,7 @@ const PokemonCard = ({ id, name, image, type }: PokemonCardProps) => {
       </p>
       <p>{name}</p>
       <Link to={`/pokemons/${id}`}>
-        <img src={image} alt={name} width="250" height="250" />
+        <img src={image} alt={name} width="200" height="250" />
       </Link>
       <p className="center">{type.join(", ")}</p>
       <Pokeball

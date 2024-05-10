@@ -30,7 +30,7 @@ const PokemonDetail = () => {
       <h1 className="center">Pokemon details</h1>
       <div className={style.wrapper}>
         <div className={style.leftSide}>
-          <Link to="/pokemons" className={style.backLink}>
+          <Link to="/" className={style.backLink}>
             {" "}
             {`<`} Back to all pokemons
           </Link>
