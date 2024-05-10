@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import PokemonDetail from "./components/pokemon-detail/PokemonDetail";
+import PokemonProvider from "./context/PokemonContext";
+import PokemonList from "./components/pokemon-list/PokemonList";
+import Layout from "./Layout";
+import Pokedex from "./components/pokedex/Pokedex";
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <PokemonProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route path="pokemons" element={<PokemonList />} />
+              <Route path="pokemons/:id" element={<PokemonDetail />} />
+              <Route path="pokeball" element={<Pokedex />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </PokemonProvider>
+    </QueryClientProvider>
   );
 }
 

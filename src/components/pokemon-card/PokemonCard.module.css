@@ -1,0 +1,19 @@
+.pokemonContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .pokemonCard {
+    width: 300px;
+    padding: 50px;
+    margin: 20px;
+    border-radius: 10px;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+  }

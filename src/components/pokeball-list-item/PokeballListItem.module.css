@@ -1,0 +1,22 @@
+.pokemonImage {
+    width: 120px;
+    height: 200px;
+    border-radius: 8px 0 0 8px; 
+    margin-right: 20px; 
+  }
+  
+  .details {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+  }
+  
+  .pokemonName {
+    font-size: 1.2rem; 
+    color: #333; 
+  }
+  
+  .pokemonInfo {
+    font-size: 0.9rem;
+    color: #666; 
+  }
