@@ -61,3 +61,6 @@
     align-self: flex-end;
 }
 
+.description {
+    font-size: 13px;
+}

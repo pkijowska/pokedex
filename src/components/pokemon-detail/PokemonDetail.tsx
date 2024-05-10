@@ -49,7 +49,7 @@ const PokemonDetail = () => {
         </div>
         <div className={style.rightSide}>
           <h1>{capitaliseFirstLetter(data?.name)}</h1>
-          <div>
+          <div className={style.description}>
             <h2>Description</h2>
             <p>{data?.description}</p>
             <h2>Stats</h2>
