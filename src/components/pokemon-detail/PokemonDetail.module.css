@@ -11,6 +11,8 @@
 @media (max-width: 1200px) { 
     .wrapper {
         grid-template-columns: 1fr; 
+        margin: 5px;
+        padding: 15px;
     }
 }
 
