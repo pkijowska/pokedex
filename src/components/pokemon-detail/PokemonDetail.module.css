@@ -63,6 +63,17 @@
     align-self: flex-end;
 }
 
+.leftLink {
+    align-self: flex-start;
+}
+
 .description {
     font-size: 13px;
+}
+
+.links {
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }

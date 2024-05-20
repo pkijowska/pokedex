@@ -28,7 +28,3 @@ An user can:
 ![Pokemon details Image](/src/pokemondetails.png)
 ![Pokedex](/src/pokedex.png)
 ![Loading Image](/src/loadinggif.png)
-
-## Role specific
-
-After my interview with AnyJunk I really wanted to use some of the technology they use, so that's the reason I added context, react query, material ui and added some custom hooks.

@@ -32,5 +32,11 @@ body {
   .container{
     width: 1170px;
   }
+
+  @media (min-width: 1500px) {
+    .container{
+      width: 1480px;
+    }
+  }
 }
 

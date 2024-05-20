@@ -1,9 +1,10 @@
 import React from "react";
 import styles from "./PokemonCard.module.css";
-import { PokemonType, getTypeColor } from "../../utils/utils";
+import { getTypeColor } from "../../utils/utils";
 import Pokeball from "../pokeball-image/PokeballImage";
 import { usePokemonProvider } from "../../context/PokemonContext";
 import { Link } from "react-router-dom";
+import { PokemonType } from "../../types/types";
 
 interface PokemonCardProps {
   id: number;

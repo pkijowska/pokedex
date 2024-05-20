@@ -3,19 +3,15 @@ import useGetPokemon from "../../hooks/useGetPokemon";
 import Loader from "../loader/Loader";
 import style from "./PokemonDetail.module.css";
 import PokemonPill from "../pokemon-pill/PokemonPill";
-import { PokemonType, capitaliseFirstLetter } from "../../utils/utils";
-import { useEffect } from "react";
+import { capitaliseFirstLetter } from "../../utils/utils";
+
 import Error from "../error/Error";
 import PokemonStats from "../pokemon-stats/PokemonStats";
+import { PokemonType } from "../../types/types";
 
 const PokemonDetail = () => {
   const { id } = useParams();
-
-  const { data, isLoading, error, refetch } = useGetPokemon(Number(id));
-
-  useEffect(() => {
-    refetch();
-  }, [id, refetch]);
+  const { data, isLoading, error } = useGetPokemon(Number(id));
 
   if (isLoading) {
     return <Loader />;
@@ -48,7 +44,7 @@ const PokemonDetail = () => {
           </div>
         </div>
         <div className={style.rightSide}>
-          <h1>{capitaliseFirstLetter(data?.name)}</h1>
+          <h1>{capitaliseFirstLetter(data?.name ?? "")}</h1>
           <div className={style.description}>
             <h2>Description</h2>
             <p>{data?.description}</p>
@@ -67,9 +63,14 @@ const PokemonDetail = () => {
             <h2>Weight</h2>
             <p>{data?.weight}</p>
           </div>
-          <Link className={style.nextLink} to={`/pokemons/${Number(id) + 1}`}>
-            Next Pokemon {`>`}
-          </Link>
+          <div className={style.links}>
+            <Link className={style.prevLink} to={`/pokemons/${Number(id) - 1}`}>
+              {`<`} Previous Pokemon
+            </Link>
+            <Link className={style.nextLink} to={`/pokemons/${Number(id) + 1}`}>
+              Next Pokemon {`>`}
+            </Link>
+          </div>
         </div>
       </div>
     </>

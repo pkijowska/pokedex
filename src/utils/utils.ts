@@ -1,4 +1,4 @@
-export type PokemonType = 'normal' | 'fighting' | 'flying' | 'poison' | 'ground' | 'rock' | 'bug' | 'ghost' | 'steel' | 'fire' | 'water' | 'grass' | 'electric' | 'psychic' | 'ice' | 'dragon' | 'dark' | 'fairy' | 'stellar' | 'unknown';
+import { PokemonType } from "../types/types";
 
 export const getTypeColor = (typeName: PokemonType) => {
     switch (typeName) {
@@ -50,3 +50,4 @@ export const getTypeColor = (typeName: PokemonType) => {
 export const capitaliseFirstLetter = (string:string)=>  {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
+

@@ -1,12 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
+import { PokemonDetailResponse } from "../types/types";
 
-const fetchPokemon = (id: number) => async () => {
+const fetchPokemon = async (id: number): Promise<PokemonDetailResponse> => {
   const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
   const data = await res.json();
 
   const species = await fetch(data.species.url);
   const speciesData = await species.json();
-  console.log(data.stats);
   const stats = data.stats.map(
     (stat: { stat: { name: string }; base_stat: number }) => {
       return {
@@ -16,6 +16,14 @@ const fetchPokemon = (id: number) => async () => {
     }
   );
 
+  const englishEntry = speciesData.flavor_text_entries.find(
+    (entry: { language: { name: string } }) => entry.language.name === "en"
+  );
+
+  const description = englishEntry
+    ? englishEntry.flavor_text
+    : "No description available.";
+
   const pokemon = {
     name: data.name,
     id: data.id,
@@ -23,7 +31,7 @@ const fetchPokemon = (id: number) => async () => {
     type: data.types.map((type: any) => type.type.name),
     height: data.height,
     weight: data.weight,
-    description: speciesData.flavor_text_entries[1].flavor_text,
+    description,
     color: speciesData.color.name,
     stats,
   };
@@ -33,8 +41,8 @@ const fetchPokemon = (id: number) => async () => {
 
 const useGetPokemon = (id: number) => {
   const { data, status, isLoading, error, refetch } = useQuery({
-    queryKey: ["pokemon"],
-    queryFn: fetchPokemon(id),
+    queryKey: ["pokemon", id],
+    queryFn: () => fetchPokemon(id),
   });
 
   return { data, status, isLoading, error, refetch };

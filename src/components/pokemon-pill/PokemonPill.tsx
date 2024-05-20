@@ -1,4 +1,4 @@
-import { PokemonType } from "../../utils/utils";
+import { PokemonType } from "../../types/types";
 import style from "./PokemonPill.module.css";
 
 const PokemonPill = ({ type }: { type: PokemonType }) => {
