@@ -24,11 +24,11 @@ const fetchPokemons = async (): Promise<PokemonsResponse> => {
 };
 
 const useGetPokemonsApi = () => {
-  const { data, status, isLoading, error, refetch } = useQuery({
+  const { data, status, isLoading, error } = useQuery({
     queryKey: ["pokemons"],
     queryFn: fetchPokemons,
   });
 
-  return { data, status, isLoading, error, refetch };
+  return { data, status, isLoading, error };
 };
 export default useGetPokemonsApi;

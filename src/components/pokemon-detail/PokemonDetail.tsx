@@ -64,12 +64,22 @@ const PokemonDetail = () => {
             <p>{data?.weight}</p>
           </div>
           <div className={style.links}>
-            <Link className={style.prevLink} to={`/pokemons/${Number(id) - 1}`}>
-              {`<`} Previous Pokemon
-            </Link>
-            <Link className={style.nextLink} to={`/pokemons/${Number(id) + 1}`}>
-              Next Pokemon {`>`}
-            </Link>
+            {id !== "1" && (
+              <Link
+                className={style.prevLink}
+                to={`/pokemons/${Number(id) - 1}`}
+              >
+                {`<`} Previous Pokemon
+              </Link>
+            )}
+            {id !== "1025" && (
+              <Link
+                className={style.nextLink}
+                to={`/pokemons/${Number(id) + 1}`}
+              >
+                Next Pokemon {`>`}
+              </Link>
+            )}
           </div>
         </div>
       </div>
